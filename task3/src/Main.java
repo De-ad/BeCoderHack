@@ -5,6 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Main {
+
     public static int countPron(String line, String pron) {
         String spaceLine = " " + line + " ";
         Pattern pattern = Pattern.compile(" " + pron + "[\\.\\!\\:\\?\\; ]");
@@ -14,15 +15,22 @@ public class Main {
             count++;
         return count;
     }
+
     public static boolean isEmpty(String str) {
         return str == null || str.equals("");
     }
+
     public static void main(String[] args) throws Exception {
         URL url = new URL("https://se.ifmo.ru/~s335191/index.html");
         BufferedReader reader = new BufferedReader(new InputStreamReader(url.openConnection().getInputStream(), "UTF-8"));
 
-        String[] pron1 = new String[]{"я", "мы"};
-        String[] pron23 = new String[] {"ты", "вы", "он", "она", "оно", "они"};
+        /*
+        Принимает BufferedReader, убирает пробелы, тоси боси, хуе мое, выводит результат
+         */
+        System.out.println(CountSolutions.result(reader) ? "Личных местоимений больше" : "Личных местоимений меньше");
+
+        /* String[] pron1 = new String[]{"я", "мы"};
+        String[] pron23 = new String[] {"ты", "вы", "он", "она", "оно", "они"}; */
 
 /*
         String str = "он  он  он  он";
@@ -34,8 +42,9 @@ public class Main {
             System.out.print(pron23[j] + ":" + countPron(str, pron23[j]) + "    ");
         }
 */
-        while (true) {
-            String line = reader.readLine();
+
+        /*while (true) {
+            tring line = reader.readLine();
             if (line == null)
                 break;
             line = line.toLowerCase();
@@ -66,6 +75,7 @@ public class Main {
                     readStart = true;
                 }
             }
-        }
+        }*/
+
     }
 }
