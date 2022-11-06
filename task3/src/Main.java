@@ -1,4 +1,6 @@
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.net.*;
 import java.util.regex.Matcher;
@@ -21,6 +23,8 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
+        /*FileInputStream f = new FileInputStream("index.html");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(f, "UTF-8"));*/
         URL url = new URL("https://se.ifmo.ru/~s335191/index.html");
         BufferedReader reader = new BufferedReader(new InputStreamReader(url.openConnection().getInputStream(), "UTF-8"));
 

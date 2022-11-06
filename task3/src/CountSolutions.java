@@ -6,10 +6,11 @@ import java.util.List;
 public class CountSolutions {
 
     private static String[] selfPronouns = {
-            "я", "мы", "ты", "вы", "он", "она", "оно", "они"
+            "я", "мы"
     };
 
     private static String[] otherPronouns = {
+            "ты", "вы", "он", "она", "оно", "они", // личные других лиц
             "себя", // возвратные
             "мой", "твой", "наш", "ваш", "свой", // притяжательные
             "сам", "весь", "всякий", "каждый", "иной", "другой", "любой", // определительные
@@ -22,7 +23,7 @@ public class CountSolutions {
     private static List<String> selfPronsList = Arrays.asList(selfPronouns);
     private static List<String> otherPronsList = Arrays.asList(otherPronouns);
 
-    private static final String PUNCTUACTION_SIGNS_REGEX = "[/[.,\\/\'\"#!?><$%\\^&\\*;:{}=\\-_`~()]/g]";
+    private static final String PUNCTUACTION_SIGNS_REGEX = "[/[.,\\/\'\"#!?><$%\\^&\\*;:{}=\\-_`~()\t]/g]";
 
     public static long countPronouns(String line) {
         line = String.join(" ", line.split(PUNCTUACTION_SIGNS_REGEX));
@@ -38,9 +39,10 @@ public class CountSolutions {
         String curLine;
         long cntSelf = 0, cntOther = 0;
         while ((curLine = reader.readLine()) != null) {
-            cntSelf += countPronouns(curLine);
-            cntOther += countOtherPronouns(curLine);
+            cntSelf += countPronouns(curLine.toLowerCase());
+            cntOther += countOtherPronouns(curLine.toLowerCase());
         }
+        System.out.println(cntSelf + " " + cntOther);
         return cntSelf > cntOther;
     }
 
