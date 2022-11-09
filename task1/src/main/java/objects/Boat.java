@@ -1,11 +1,9 @@
 package objects;
 
-// The oared tarida was able to be loaded and unloaded directly on a beach, using doors as loading ramps
-//  supported by canvas slings
-// The horses were loaded through openings in the hull, which were then sealed for the voyage.
-// Adapting a ship for horse transportation required the installation of stalls of wood or hurdles.
+
 public class Boat {
-    private int id = 1;
+    static private int currentId = 1;
+    final private Integer id;
     private int area;
     private boolean hasFence;
     private String material;
@@ -16,7 +14,8 @@ public class Boat {
     private int efficiency;
 
     public Boat(int area, boolean hasFence, String material, boolean stabilization, boolean doorWidth, String power, boolean humanCapacity) {
-        this.id = id++;
+        this.id = currentId;
+        currentId++;
         this.area = area;
         this.hasFence = hasFence;
         this.material = material;

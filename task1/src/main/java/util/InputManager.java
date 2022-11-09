@@ -29,18 +29,17 @@ public class InputManager {
         if (str.trim().equals("console")){
             Boat boat = boatCreator();
             testBoat(boat);
-
         }
+        
 
     }
 
     public void testBoat(Boat boat){
         TestBoat testBoat = new TestBoat();
         testBoat.test(boat);
-
     }
 
-    public static Boat boatCreator(){
+    public Boat boatCreator(){
         System.out.println("Enter area of boat:");
         int area = parseInt(read());
         System.out.println("Enter is there a fence (true/false):");
