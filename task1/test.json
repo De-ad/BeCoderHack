@@ -1,0 +1,29 @@
+[
+  {
+    "area": 4,
+    "hasFence": true,
+    "material" : "wood",
+    "stabilization" : true,
+    "doorWidth": "true",
+    "power " : "oars",
+    "humanCapacity" : "true"
+  },
+  {
+    "area": 10000,
+    "hasFence": false,
+    "material" : "rock",
+    "stabilization" : true,
+    "doorWidth": "true",
+    "power " : "nothing",
+    "humanCapacity" : "true"
+  },
+  {
+    "area": 1,
+    "hasFence": true,
+    "material" : "paper",
+    "stabilization" : false,
+    "doorWidth": "true",
+    "power " : "motor",
+    "humanCapacity" : "true"
+  }
+]
