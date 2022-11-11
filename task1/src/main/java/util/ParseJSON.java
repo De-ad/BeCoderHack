@@ -16,7 +16,7 @@ public class ParseJSON {
     private Gson gson;
 
     public void parse(String fileName) throws Exception {
-        File file = new File(fileName);
+        file = new File(fileName);
         try {
 
             if (!file.exists()) {
@@ -34,13 +34,17 @@ public class ParseJSON {
             System.out.println(e.getMessage());
             System.exit(1);
         }
-        this.file = file;
         this.fileReader = new FileReader(file);
         this.gson = new Gson();
+
+        //Ксюша, вот твой массив лодок... Работает
+        ArrayList<Boat> arr = getCollection();
+        //вывел
+        arr.forEach(System.out::println);
     }
 
     public ArrayList<Boat> getCollection() {
-        ArrayList<Boat> boatsArrayList = new ArrayList<Boat>();
+        ArrayList<Boat> boatsArrayList = new ArrayList<>();
         try {
             JsonReader reader = new JsonReader(this.fileReader);
             if (!reader.hasNext()) {
@@ -50,6 +54,10 @@ public class ParseJSON {
             if (boats == null || boats.length == 0) {
                 return boatsArrayList;
             }
+            //добавил эту итерацию чтобы сделать id для лодок
+            for (Boat b : boats)
+                b.generateId();
+
             boatsArrayList.addAll(Arrays.asList(boats));
         } catch (Exception e) {
             System.out.println("Error in getting files");

@@ -3,7 +3,7 @@ package objects;
 
 public class Boat {
     static private int currentId = 1;
-    final private Integer id;
+    private Integer id;
     private int area;
     private boolean hasFence;
     private String material;
@@ -23,6 +23,26 @@ public class Boat {
         this.doorWidth = doorWidth;
         this.power = power;
         this.humanCapacity = humanCapacity;
+    }
+
+    @Override
+    public String toString() {
+        return "Boat{" +
+                "id=" + id +
+                ", area=" + area +
+                ", hasFence=" + hasFence +
+                ", material='" + material + '\'' +
+                ", stabilization=" + stabilization +
+                ", doorWidth=" + doorWidth +
+                ", power='" + power + '\'' +
+                ", humanCapacity=" + humanCapacity +
+                ", efficiency=" + efficiency +
+                '}';
+    }
+
+    //Убрал у Id final и сделал метод который генерит id для тех объектов, у кого это поле null
+    public void generateId() {
+         id = currentId++;
     }
 
     public int getId() {

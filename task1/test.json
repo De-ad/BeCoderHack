@@ -5,7 +5,7 @@
     "material" : "wood",
     "stabilization" : true,
     "doorWidth": "true",
-    "power " : "oars",
+    "power" : "oars",
     "humanCapacity" : "true"
   },
   {
@@ -14,7 +14,7 @@
     "material" : "rock",
     "stabilization" : true,
     "doorWidth": "true",
-    "power " : "nothing",
+    "power" : "nothing",
     "humanCapacity" : "true"
   },
   {
@@ -23,7 +23,7 @@
     "material" : "paper",
     "stabilization" : false,
     "doorWidth": "true",
-    "power " : "motor",
+    "power" : "motor",
     "humanCapacity" : "true"
   }
 ]
