@@ -2,7 +2,6 @@ package util;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -14,8 +13,9 @@ public class ParseJSON {
     private File file;
     private FileReader fileReader;
     private Gson gson;
+    private ArrayList<Boat> arr;
 
-    public void parse(String fileName) throws Exception {
+    public ArrayList<Boat> parse(String fileName) throws Exception {
         file = new File(fileName);
         try {
 
@@ -38,9 +38,10 @@ public class ParseJSON {
         this.gson = new Gson();
 
         //Ксюша, вот твой массив лодок... Работает
-        ArrayList<Boat> arr = getCollection();
+        arr = getCollection();
         //вывел
-        arr.forEach(System.out::println);
+//        arr.forEach(System.out::println);
+        return arr;
     }
 
     public ArrayList<Boat> getCollection() {
@@ -54,7 +55,7 @@ public class ParseJSON {
             if (boats == null || boats.length == 0) {
                 return boatsArrayList;
             }
-            //добавил эту итерацию чтобы сделать id для лодок
+
             for (Boat b : boats)
                 b.generateId();
 

@@ -4,6 +4,7 @@ import objects.Boat;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.Boolean.parseBoolean;
@@ -38,7 +39,10 @@ public class InputManager {
             testBoat(boat);
         }
         else{
-            parser.parse(str);
+            ArrayList<Boat> boats = parser.parse(str);
+            for (Boat boat : boats){
+                testBoat(boat);
+                }
             }
     }
 
