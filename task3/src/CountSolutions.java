@@ -3,6 +3,10 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+
+/**
+ * Статический класс решения поставленной задачи - считать и возвращать чего больше
+ */
 public class CountSolutions {
 
     private static String[] selfPronouns = {
@@ -35,15 +39,20 @@ public class CountSolutions {
         return Arrays.stream(line.split(" ")).filter(otherPronsList::contains).count();
     }
 
-    public static boolean result(BufferedReader reader) throws IOException {
+    /**
+     * Читает весь буффер, считает количество местоимений и выводит каких больше
+     * @param reader Ссылка на объект Buffered Reader
+     * @return Если количество слов в буфере из selfPronount больше, чем из otherPronouns
+     * @throws IOException
+     */
+    public static long[] isSelfMore(BufferedReader reader) throws IOException {
         String curLine;
         long cntSelf = 0, cntOther = 0;
         while ((curLine = reader.readLine()) != null) {
             cntSelf += countPronouns(curLine.toLowerCase());
             cntOther += countOtherPronouns(curLine.toLowerCase());
         }
-        System.out.println(cntSelf + " " + cntOther);
-        return cntSelf > cntOther;
+        return new long[] {cntSelf > cntOther ? 1l : 0l, cntSelf, cntOther};
     }
 
 }
